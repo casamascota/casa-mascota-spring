@@ -99,6 +99,6 @@ spring.jpa.hibernate.ddl-auto=none
 Nota: Una vez hecho el paso 1, para volver a correr el contenedor de docker(que tiene la base de datos)
 
 ```
-docker start todolistdb
+docker start pets
 ```
 ---
