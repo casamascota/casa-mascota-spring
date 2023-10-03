@@ -1,5 +1,5 @@
 # casa-mascota-spring
-Backend para el proyeco casa de la mascota realizado en Spring
+Backend para el proyecto casa de la mascota realizado en Spring
 
 ## Requerimientos
 
