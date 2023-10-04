@@ -16,6 +16,7 @@ class BackendCasaMascotaApplicationTests {
 	@Autowired
 	DoctorDao doctorDao;
 
+	//Testeanding a lo PRO
 	@Test
 	void contextLoads() {
 		List<Doctor> DoctorList = doctorDao.findAll();
