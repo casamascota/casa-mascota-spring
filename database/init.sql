@@ -1,10 +1,23 @@
 -- Table: Persona
 CREATE TABLE Persona (
-                         id_persona serial PRIMARY KEY,
-                         nombre varchar(100) NOT NULL,
-                         apellido varchar(100) NOT NULL,
-                         numero_tel varchar(50) NOT NULL,
-                         direccion varchar(250) NOT NULL
+    id_persona serial PRIMARY KEY,
+    nombre varchar(100) NOT NULL,
+    apellido varchar(100) NOT NULL,
+    numero_tel varchar(50) NOT NULL,
+    direccion varchar(250) NOT NULL
+);
+
+-- Table: Usuario (reemplaza Owner, Estilista, Doctor, Enfermero con una columna de rol)
+-- En teoria aqui manejamos los roles solo con texto
+-- PD: check es para SOLO usar esos roles, no se aceptan otros roles mas que los que estan ahi
+CREATE TABLE Usuario (
+    id_usuario serial PRIMARY KEY,
+    username varchar(50) NOT NULL UNIQUE,
+    hashed_password varchar(255) NOT NULL,
+    rol varchar(50) CHECK (rol IN ('Owner', 'Estilista', 'Doctor', 'Enfermero')) NOT NULL,
+    id_persona integer NOT NULL,
+    especialidad varchar(250), -- NULLABLE, solo para doctores
+    CONSTRAINT fk_usuario_persona FOREIGN KEY (id_persona) REFERENCES Persona (id_persona)
 );
 
 -- Table: Owner
