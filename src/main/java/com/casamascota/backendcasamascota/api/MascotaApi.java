@@ -1,6 +1,7 @@
 package com.casamascota.backendcasamascota.api;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,11 @@ public class MascotaApi {
     @GetMapping("/user/{userId}")
     private ResponseEntity<List<Mascota>> findAllByUserId(@PathVariable("userId") Long userId) {
         return ResponseEntity.ok(mascotaBl.findAllByUserId(userId));
+    }
+
+    @GetMapping
+    private ResponseEntity<Optional<Mascota>> findById(@RequestParam("mascotaId") Long mascotaId) {
+        return ResponseEntity.ok(mascotaBl.findById(mascotaId));
     }
 
     @PutMapping
