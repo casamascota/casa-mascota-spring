@@ -4,16 +4,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
 
-import com.casamascota.backendcasamascota.dao.PersonaDao;
-import com.casamascota.backendcasamascota.entity.Persona;
+import com.casamascota.backendcasamascota.dao.CitaAgendadaDao;
+import com.casamascota.backendcasamascota.entity.CitaAgendada;
 
-public class PersonaBl implements PersonaDao{
+public class CitaAgendadaBl implements CitaAgendadaDao {
+
+    @Autowired
+    private CitaAgendadaDao citaAgendadaDao;
 
     @Override
     public void flush() {
@@ -22,19 +26,19 @@ public class PersonaBl implements PersonaDao{
     }
 
     @Override
-    public <S extends Persona> S saveAndFlush(S entity) {
+    public <S extends CitaAgendada> S saveAndFlush(S entity) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'saveAndFlush'");
     }
 
     @Override
-    public <S extends Persona> List<S> saveAllAndFlush(Iterable<S> entities) {
+    public <S extends CitaAgendada> List<S> saveAllAndFlush(Iterable<S> entities) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'saveAllAndFlush'");
     }
 
     @Override
-    public void deleteAllInBatch(Iterable<Persona> entities) {
+    public void deleteAllInBatch(Iterable<CitaAgendada> entities) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteAllInBatch'");
     }
@@ -52,63 +56,72 @@ public class PersonaBl implements PersonaDao{
     }
 
     @Override
-    public Persona getOne(Long id) {
+    public CitaAgendada getOne(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getOne'");
     }
 
     @Override
-    public Persona getById(Long id) {
+    public CitaAgendada getById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getById'");
     }
 
     @Override
-    public Persona getReferenceById(Long id) {
+    public CitaAgendada getReferenceById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getReferenceById'");
     }
 
     @Override
-    public <S extends Persona> List<S> findAll(Example<S> example) {
+    public <S extends CitaAgendada> List<S> findAll(Example<S> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public <S extends Persona> List<S> findAll(Example<S> example, Sort sort) {
+    public <S extends CitaAgendada> List<S> findAll(Example<S> example, Sort sort) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public <S extends Persona> List<S> saveAll(Iterable<S> entities) {
+    public <S extends CitaAgendada> List<S> saveAll(Iterable<S> entities) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'saveAll'");
     }
 
     @Override
-    public List<Persona> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+    public List<CitaAgendada> findAll() {
+        try {
+            return citaAgendadaDao.findAll();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
-    public List<Persona> findAllById(Iterable<Long> ids) {
+    public List<CitaAgendada> findAllById(Iterable<Long> ids) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAllById'");
     }
 
     @Override
-    public <S extends Persona> S save(S entity) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    public <S extends CitaAgendada> S save(S entity) {
+        try {
+            return citaAgendadaDao.save(entity);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
-    public Optional<Persona> findById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    public Optional<CitaAgendada> findById(Long id) {
+        try {
+            return citaAgendadaDao.findById(id);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
@@ -125,12 +138,15 @@ public class PersonaBl implements PersonaDao{
 
     @Override
     public void deleteById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+        try {
+            citaAgendadaDao.deleteById(id);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 
     @Override
-    public void delete(Persona entity) {
+    public void delete(CitaAgendada entity) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
@@ -142,7 +158,7 @@ public class PersonaBl implements PersonaDao{
     }
 
     @Override
-    public void deleteAll(Iterable<? extends Persona> entities) {
+    public void deleteAll(Iterable<? extends CitaAgendada> entities) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteAll'");
     }
@@ -154,46 +170,46 @@ public class PersonaBl implements PersonaDao{
     }
 
     @Override
-    public List<Persona> findAll(Sort sort) {
+    public List<CitaAgendada> findAll(Sort sort) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public Page<Persona> findAll(Pageable pageable) {
+    public Page<CitaAgendada> findAll(Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public <S extends Persona> Optional<S> findOne(Example<S> example) {
+    public <S extends CitaAgendada> Optional<S> findOne(Example<S> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findOne'");
     }
 
     @Override
-    public <S extends Persona> Page<S> findAll(Example<S> example, Pageable pageable) {
+    public <S extends CitaAgendada> Page<S> findAll(Example<S> example, Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public <S extends Persona> long count(Example<S> example) {
+    public <S extends CitaAgendada> long count(Example<S> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'count'");
     }
 
     @Override
-    public <S extends Persona> boolean exists(Example<S> example) {
+    public <S extends CitaAgendada> boolean exists(Example<S> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'exists'");
     }
 
     @Override
-    public <S extends Persona, R> R findBy(Example<S> example, Function<FetchableFluentQuery<S>, R> queryFunction) {
+    public <S extends CitaAgendada, R> R findBy(Example<S> example,
+            Function<FetchableFluentQuery<S>, R> queryFunction) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findBy'");
     }
-
-
+    
 }

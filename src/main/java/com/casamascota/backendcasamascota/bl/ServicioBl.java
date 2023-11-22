@@ -4,16 +4,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
 
-import com.casamascota.backendcasamascota.dao.PersonaDao;
-import com.casamascota.backendcasamascota.entity.Persona;
+import com.casamascota.backendcasamascota.dao.ServicioDao;
+import com.casamascota.backendcasamascota.entity.Servicio;
 
-public class PersonaBl implements PersonaDao{
+public class ServicioBl implements ServicioDao {
+
+    @Autowired
+    private ServicioDao servicioDao;
 
     @Override
     public void flush() {
@@ -22,19 +26,19 @@ public class PersonaBl implements PersonaDao{
     }
 
     @Override
-    public <S extends Persona> S saveAndFlush(S entity) {
+    public <S extends Servicio> S saveAndFlush(S entity) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'saveAndFlush'");
     }
 
     @Override
-    public <S extends Persona> List<S> saveAllAndFlush(Iterable<S> entities) {
+    public <S extends Servicio> List<S> saveAllAndFlush(Iterable<S> entities) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'saveAllAndFlush'");
     }
 
     @Override
-    public void deleteAllInBatch(Iterable<Persona> entities) {
+    public void deleteAllInBatch(Iterable<Servicio> entities) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteAllInBatch'");
     }
@@ -52,61 +56,67 @@ public class PersonaBl implements PersonaDao{
     }
 
     @Override
-    public Persona getOne(Long id) {
+    public Servicio getOne(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getOne'");
     }
 
     @Override
-    public Persona getById(Long id) {
+    public Servicio getById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getById'");
     }
 
     @Override
-    public Persona getReferenceById(Long id) {
+    public Servicio getReferenceById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getReferenceById'");
     }
 
     @Override
-    public <S extends Persona> List<S> findAll(Example<S> example) {
+    public <S extends Servicio> List<S> findAll(Example<S> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public <S extends Persona> List<S> findAll(Example<S> example, Sort sort) {
+    public <S extends Servicio> List<S> findAll(Example<S> example, Sort sort) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public <S extends Persona> List<S> saveAll(Iterable<S> entities) {
+    public <S extends Servicio> List<S> saveAll(Iterable<S> entities) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'saveAll'");
     }
 
     @Override
-    public List<Persona> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+    public List<Servicio> findAll() {
+        try {
+            return servicioDao.findAll();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
-    public List<Persona> findAllById(Iterable<Long> ids) {
+    public List<Servicio> findAllById(Iterable<Long> ids) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAllById'");
     }
 
     @Override
-    public <S extends Persona> S save(S entity) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    public <S extends Servicio> S save(S entity) {
+        try {
+            return servicioDao.save(entity);   
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
-    public Optional<Persona> findById(Long id) {
+    public Optional<Servicio> findById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findById'");
     }
@@ -125,12 +135,15 @@ public class PersonaBl implements PersonaDao{
 
     @Override
     public void deleteById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+        try {
+            servicioDao.deleteById(id);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 
     @Override
-    public void delete(Persona entity) {
+    public void delete(Servicio entity) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
@@ -142,7 +155,7 @@ public class PersonaBl implements PersonaDao{
     }
 
     @Override
-    public void deleteAll(Iterable<? extends Persona> entities) {
+    public void deleteAll(Iterable<? extends Servicio> entities) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteAll'");
     }
@@ -154,46 +167,45 @@ public class PersonaBl implements PersonaDao{
     }
 
     @Override
-    public List<Persona> findAll(Sort sort) {
+    public List<Servicio> findAll(Sort sort) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public Page<Persona> findAll(Pageable pageable) {
+    public Page<Servicio> findAll(Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public <S extends Persona> Optional<S> findOne(Example<S> example) {
+    public <S extends Servicio> Optional<S> findOne(Example<S> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findOne'");
     }
 
     @Override
-    public <S extends Persona> Page<S> findAll(Example<S> example, Pageable pageable) {
+    public <S extends Servicio> Page<S> findAll(Example<S> example, Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public <S extends Persona> long count(Example<S> example) {
+    public <S extends Servicio> long count(Example<S> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'count'");
     }
 
     @Override
-    public <S extends Persona> boolean exists(Example<S> example) {
+    public <S extends Servicio> boolean exists(Example<S> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'exists'");
     }
 
     @Override
-    public <S extends Persona, R> R findBy(Example<S> example, Function<FetchableFluentQuery<S>, R> queryFunction) {
+    public <S extends Servicio, R> R findBy(Example<S> example, Function<FetchableFluentQuery<S>, R> queryFunction) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findBy'");
     }
-
-
+    
 }
