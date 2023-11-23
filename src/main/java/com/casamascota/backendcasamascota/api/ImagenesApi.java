@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.casamascota.backendcasamascota.bl.ImagenesBl;
@@ -43,7 +44,7 @@ public class ImagenesApi {
     }
 
     @DeleteMapping
-    private ResponseEntity<Void> deleteById(Long imagenesId) {
+    private ResponseEntity<Void> deleteById(@RequestParam("imagenesId") Long imagenesId) {
         imagenesBl.deleteById(imagenesId);
         return ResponseEntity.ok(null);
     }

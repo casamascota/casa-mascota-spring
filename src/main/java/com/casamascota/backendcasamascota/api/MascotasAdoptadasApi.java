@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.casamascota.backendcasamascota.bl.MascotasAdoptadasBl;
@@ -38,7 +39,7 @@ public class MascotasAdoptadasApi {
     }
 
     @DeleteMapping
-    private ResponseEntity<Void> deleteById(Long mascotaId) {
+    private ResponseEntity<Void> deleteById(@RequestParam("mascotaId") Long mascotaId) {
         mascotasAdoptadasBl.deleteById(mascotaId);
         return ResponseEntity.ok(null);
     }
