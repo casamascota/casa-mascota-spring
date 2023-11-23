@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
 })
 
 export class DoctoresService {
-  URL_BASE = 'http://localhost:3000/api/';
+  URL_BASE = 'http://localhost:3000/api/v1/';
 
   constructor(private httpClient: HttpClient) {}
 
