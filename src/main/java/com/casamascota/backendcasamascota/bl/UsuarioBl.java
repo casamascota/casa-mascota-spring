@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,10 +13,17 @@ import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuer
 import org.springframework.stereotype.Service;
 
 import com.casamascota.backendcasamascota.dao.UsuarioDao;
+import com.casamascota.backendcasamascota.entity.Persona;
 import com.casamascota.backendcasamascota.entity.Usuario;
 
 @Service
 public class UsuarioBl implements UsuarioDao {
+
+    @Autowired
+    private UsuarioDao usuarioDao;
+
+    @Autowired
+    private PersonaBl personaBl;
 
     @Override
     public void flush() {
@@ -103,14 +111,23 @@ public class UsuarioBl implements UsuarioDao {
 
     @Override
     public <S extends Usuario> S save(S entity) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+        try {
+            Optional<Persona> persona = personaBl.findById(entity.getPersona().getId_persona());
+            entity.setPersona(persona.get());
+
+            return usuarioDao.save(entity);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public Optional<Usuario> findById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        try {
+            return usuarioDao.findById(id);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override

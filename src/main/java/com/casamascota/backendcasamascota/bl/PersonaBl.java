@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +17,9 @@ import com.casamascota.backendcasamascota.entity.Persona;
 
 @Service
 public class PersonaBl implements PersonaDao{
+
+    @Autowired
+    private PersonaDao personaDao;
 
     @Override
     public void flush() {
@@ -103,14 +107,20 @@ public class PersonaBl implements PersonaDao{
 
     @Override
     public <S extends Persona> S save(S entity) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+        try {
+            return personaDao.save(entity);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public Optional<Persona> findById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        try {
+            return personaDao.findById(id);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
