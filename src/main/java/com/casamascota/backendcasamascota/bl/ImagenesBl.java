@@ -11,11 +11,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+import org.springframework.stereotype.Service;
 
 import com.casamascota.backendcasamascota.dao.ImagenesDao;
 import com.casamascota.backendcasamascota.entity.Imagenes;
 import com.casamascota.backendcasamascota.entity.Mascota;
 
+@Service
 public class ImagenesBl implements ImagenesDao {
 
     @Autowired

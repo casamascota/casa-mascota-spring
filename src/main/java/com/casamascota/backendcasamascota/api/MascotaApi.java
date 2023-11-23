@@ -40,8 +40,8 @@ public class MascotaApi {
         return ResponseEntity.ok(mascotaBl.findAllByUserId(userId));
     }
 
-    @GetMapping
-    private ResponseEntity<Optional<Mascota>> findById(@RequestParam("mascotaId") Long mascotaId) {
+    @GetMapping("/{mascotaId}")
+    private ResponseEntity<Optional<Mascota>> findById(@PathVariable("mascotaId") Long mascotaId) {
         return ResponseEntity.ok(mascotaBl.findById(mascotaId));
     }
 

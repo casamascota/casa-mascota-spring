@@ -10,12 +10,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+import org.springframework.stereotype.Service;
 
 import com.casamascota.backendcasamascota.dao.DocumentoAdopcionDao;
 import com.casamascota.backendcasamascota.entity.DocumentoAdopcion;
 import com.casamascota.backendcasamascota.entity.MascotasAdoptadas;
 import com.casamascota.backendcasamascota.entity.TipoDocumento;
 
+@Service
 public class DocumentoAdopcionBl implements DocumentoAdopcionDao {
 
     @Autowired

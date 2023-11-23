@@ -9,10 +9,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+import org.springframework.stereotype.Service;
 
 import com.casamascota.backendcasamascota.dao.PersonaDao;
 import com.casamascota.backendcasamascota.entity.Persona;
 
+@Service
 public class PersonaBl implements PersonaDao{
 
     @Override

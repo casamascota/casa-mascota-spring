@@ -10,10 +10,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+import org.springframework.stereotype.Service;
 
 import com.casamascota.backendcasamascota.dao.ServicioDao;
 import com.casamascota.backendcasamascota.entity.Servicio;
 
+@Service
 public class ServicioBl implements ServicioDao {
 
     @Autowired

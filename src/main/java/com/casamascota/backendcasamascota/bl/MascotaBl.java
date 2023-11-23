@@ -11,12 +11,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+import org.springframework.stereotype.Service;
 
 import com.casamascota.backendcasamascota.dao.MascotaDao;
 import com.casamascota.backendcasamascota.dao.UsuarioDao;
 import com.casamascota.backendcasamascota.entity.Mascota;
 import com.casamascota.backendcasamascota.entity.Usuario;
 
+@Service
 public class MascotaBl implements MascotaDao {
 
     @Autowired
