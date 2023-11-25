@@ -1,7 +1,8 @@
 #Obtener todos los doctores
+# @no-redirect
 GET http://localhost:8080/api/v1/doctores/
 
-#Añadir un doctor
+###Añadir un doctor
 POST http://localhost:8080/api/v1/doctores/
 Content-Type: application/json
 Accept: application/json
@@ -19,7 +20,7 @@ Content:
   }
 }
 
-# Aqui necesitamos ID del doctor 4 e igualmente la informacion de PERSONA se cambia junto al doctor
+### Aqui necesitamos ID del doctor 4 e igualmente la informacion de PERSONA se cambia junto al doctor
 PUT http://localhost:8080/api/v1/doctores/4
 Content-Type: application/json
 Accept: application/json
@@ -37,7 +38,7 @@ Content:
   }
 }
 
-# Eliminar un doctor
+### Eliminar un doctor
 DELETE http://localhost:8080/api/v1/doctores/4
 
 # Esto saldra si un doctor es eliminado y se genera una cita agendada asi que nos corresponde
