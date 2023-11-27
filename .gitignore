@@ -34,3 +34,9 @@ build/
 
 ### ENVIRONMENT ###
 ./.env
+
+./Frontend/node_modules
+./Frontend/.cache
+./Frontend/.idea
+./Frontend/.vscode
+./Frontend/.angular
