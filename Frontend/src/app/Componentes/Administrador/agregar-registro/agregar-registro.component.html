@@ -36,11 +36,11 @@
 
         <mat-form-field class="ancho">
           <mat-label>Telefono:</mat-label>
-          <input matInput type="number" formControlName="numero_tel" />
+          <input matInput type="text" formControlName="numero_tel" maxlength="10" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" min="1" />
           <div *ngIf="formularioAdmDoc.controls['numero_tel'].invalid && formularioAdmDoc.controls['numero_tel'].touched">
             <div *ngIf="formularioAdmDoc.controls['numero_tel'].errors?.['required']"></div>
           </div>
-        </mat-form-field>
+        </mat-form-field>        
       
         <mat-form-field class="ancho">
           <mat-label>Direccion:</mat-label>
@@ -76,7 +76,7 @@
 
         <mat-form-field class="ancho">
           <mat-label>Telefono:</mat-label>
-          <input matInput type="number" formControlName="numero_tel" />
+          <input matInput type="text" formControlName="numero_tel" maxlength="10" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" min="1" />
           <div *ngIf="formularioEnfermero.controls['numero_tel'].invalid && formularioEnfermero.controls['numero_tel'].touched">
             <div *ngIf="formularioEnfermero.controls['numero_tel'].errors?.['required']"></div>
           </div>
@@ -116,7 +116,7 @@
       
         <mat-form-field class="ancho">
           <mat-label>Telefono:</mat-label>
-          <input matInput type="number" formControlName="numero_tel" />
+          <input matInput type="text" formControlName="numero_tel" maxlength="10" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" min="1" />
           <div *ngIf="formularioOwner.controls['numero_tel'].invalid && formularioOwner.controls['numero_tel'].touched">
             <div *ngIf="formularioOwner.controls['numero_tel'].errors?.['required']"></div>
           </div>
@@ -164,7 +164,7 @@
       
         <mat-form-field class="ancho">
           <mat-label>Telefono:</mat-label>
-          <input matInput type="number" formControlName="numero_tel" />
+          <input matInput type="text" formControlName="numero_tel" maxlength="10" autocomplete="off" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" min="1" />
           <div *ngIf="formularioEstilista.controls['numero_tel'].invalid && formularioEstilista.controls['numero_tel'].touched">
             <div *ngIf="formularioEstilista.controls['numero_tel'].errors?.['required']"></div>
           </div>
