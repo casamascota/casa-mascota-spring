@@ -68,7 +68,7 @@ Database: postgres
 ```
 Se hace "Test Connection con esas credenciales y se conecta con Datagrip"
 
-
+![img.png](img.png)
 3. Ejecutan el script "init.sql" de la carpeta "database".
 
 PD: Es importante tener las tablas, caso contrario no funcionara el proyecto correctamente
