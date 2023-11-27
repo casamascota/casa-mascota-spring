@@ -24,13 +24,21 @@ import { ListaTratamientosComponent } from './Componentes/Administrador/lista-tr
 import { InicioComponent } from './Componentes/Usuario/inicio/inicio.component';
 import { NosotrosComponent } from './Componentes/Usuario/nosotros/nosotros.component';
 import { NavBarComponent } from './Componentes/Usuario/NavBar/NavBar.component';
+//Navbar - Footer
 import { FooterComponent } from './Componentes/Usuario/Footer/Footer.component';
 import { NavbarPrincipalComponent } from './Componentes/Navbar/navbar-principal/navbar-principal.component';
 import { NavbarOwnerComponent } from './Componentes/Navbar/navbar-owner/navbar-owner.component';
+import { NavbarDoctorComponent } from './Componentes/Navbar/navbar-doctor/navbar-doctor.component';
 
 //owner
 import { InicioOwnerComponent } from './Componentes/Usuario/inicio-owner/inicio-owner.component';
 import { RecursosEducativosOwnerComponent } from './Componentes/Usuario/recursos-educativos-owner/recursos-educativos-owner.component';
+//Doctor
+import { ListaTratamientosDoctorComponent } from './Componentes/Administrador/lista-tratamientos-doctor/lista-tratamientos-doctor.component';
+import { ListaCirugiasDoctorComponent } from './Componentes/Administrador/lista-cirugias-doctor/lista-cirugias-doctor.component';
+import { CitasAgendadasDoctorComponent } from './Componentes/Administrador/citas-agendadas-doctor/citas-agendadas-doctor.component';
+import { CirugiaFormularioDoctorComponent } from './Componentes/Administrador/cirugia-formulario-doctor/cirugia-formulario-doctor.component';
+import { AgendaCitaDoctorComponent } from './Componentes/Administrador/agenda-cita-doctor/agenda-cita-doctor.component';
 /*
 // Componentes EF
 import { PresentacionComponent } from './FinalTecWeb/Presentacion/Presentacion.component';
@@ -60,6 +68,12 @@ const routes: Routes = [
   { path: "app-navbar-owner" , component: NavbarOwnerComponent },
   { path: "inicio-owner" , component: InicioOwnerComponent },
   { path: "educativos-owner" , component: RecursosEducativosOwnerComponent },
+  { path: "app-navbar-doctor" , component: NavbarDoctorComponent },
+  { path: "lista-tratamientos-doctor" , component: ListaTratamientosDoctorComponent },
+  { path: "lista-cirugias-doctor" , component: ListaCirugiasDoctorComponent },
+  { path: "citas-agendadas-doctor" , component: CitasAgendadasDoctorComponent },
+  { path: "cirugia-formulario-doctor" , component: CirugiaFormularioDoctorComponent },
+  { path: "agenda-cita-doctor" , component: AgendaCitaDoctorComponent}
   
 ];
 

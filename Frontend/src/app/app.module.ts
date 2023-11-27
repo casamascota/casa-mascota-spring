@@ -69,6 +69,12 @@ import { NavbarNurseComponent } from './Componentes/Navbar/navbar-nurse/navbar-n
 import { NavbarPrincipalComponent } from './Componentes/Navbar/navbar-principal/navbar-principal.component';
 import { InicioOwnerComponent } from './Componentes/Usuario/inicio-owner/inicio-owner.component';
 import { RecursosEducativosOwnerComponent } from './Componentes/Usuario/recursos-educativos-owner/recursos-educativos-owner.component';
+import { CitasAgendadasDoctorComponent } from './Componentes/Administrador/citas-agendadas-doctor/citas-agendadas-doctor.component';
+import { ListaCirugiasDoctorComponent } from './Componentes/Administrador/lista-cirugias-doctor/lista-cirugias-doctor.component';
+import { ListaTratamientosDoctorComponent } from './Componentes/Administrador/lista-tratamientos-doctor/lista-tratamientos-doctor.component';
+import { CirugiaFormularioDoctorComponent } from './Componentes/Administrador/cirugia-formulario-doctor/cirugia-formulario-doctor.component';
+import { TratamientoFormularioDoctorComponent } from './Componentes/Administrador/tratamiento-formulario-doctor/tratamiento-formulario-doctor.component';
+import { AgendaCitaDoctorComponent } from './Componentes/Administrador/agenda-cita-doctor/agenda-cita-doctor.component';
 
 
 @NgModule({
@@ -106,6 +112,12 @@ import { RecursosEducativosOwnerComponent } from './Componentes/Usuario/recursos
     NavbarPrincipalComponent,
     InicioOwnerComponent,
     RecursosEducativosOwnerComponent,
+    CitasAgendadasDoctorComponent,
+    ListaCirugiasDoctorComponent,
+    ListaTratamientosDoctorComponent,
+    CirugiaFormularioDoctorComponent,
+    TratamientoFormularioDoctorComponent,
+    AgendaCitaDoctorComponent,
 
   ],
   imports: [
