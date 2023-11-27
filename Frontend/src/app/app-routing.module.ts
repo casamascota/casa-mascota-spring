@@ -40,6 +40,9 @@ import { ListaCirugiasDoctorComponent } from './Componentes/Administrador/lista-
 import { CitasAgendadasDoctorComponent } from './Componentes/Administrador/citas-agendadas-doctor/citas-agendadas-doctor.component';
 import { CirugiaFormularioDoctorComponent } from './Componentes/Administrador/cirugia-formulario-doctor/cirugia-formulario-doctor.component';
 import { AgendaCitaDoctorComponent } from './Componentes/Administrador/agenda-cita-doctor/agenda-cita-doctor.component';
+//Mapa
+import { MapaComponent } from './Componentes/GIS/mapa/mapa.component';
+
 /*
 // Componentes EF
 import { PresentacionComponent } from './FinalTecWeb/Presentacion/Presentacion.component';
@@ -77,6 +80,7 @@ const routes: Routes = [
   { path: "agenda-cita-doctor" , component: AgendaCitaDoctorComponent},
   { path: "app-navbar-administrador" , component: NavbarAdministradorComponent },
   { path: "inicio-administrador" , component: InicioAdminComponent },
+  { path: "app-mapa" , component: MapaComponent },
   
 ];
 

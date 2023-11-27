@@ -76,6 +76,7 @@ import { TratamientoFormularioDoctorComponent } from './Componentes/Administrado
 import { AgendaCitaDoctorComponent } from './Componentes/Administrador/agenda-cita-doctor/agenda-cita-doctor.component';
 import { NavbarAdministradorComponent } from './Componentes/Navbar/navbar-administrador/navbar-administrador.component';
 import { InicioAdminComponent } from './Componentes/Administrador/inicio-admin/inicio-admin.component';
+import { MapaComponent } from './Componentes/GIS/mapa/mapa.component';
 
 
 @NgModule({
@@ -120,6 +121,7 @@ import { InicioAdminComponent } from './Componentes/Administrador/inicio-admin/i
     AgendaCitaDoctorComponent,
     NavbarAdministradorComponent,
     InicioAdminComponent,
+    MapaComponent,
 
   ],
   imports: [
