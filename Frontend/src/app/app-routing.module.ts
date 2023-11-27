@@ -24,12 +24,13 @@ import { ListaTratamientosComponent } from './Componentes/Administrador/lista-tr
 import { InicioComponent } from './Componentes/Usuario/inicio/inicio.component';
 import { NosotrosComponent } from './Componentes/Usuario/nosotros/nosotros.component';
 import { NavBarComponent } from './Componentes/Usuario/NavBar/NavBar.component';
+import { InicioAdminComponent } from './Componentes/Administrador/inicio-admin/inicio-admin.component';
 //Navbar - Footer
 import { FooterComponent } from './Componentes/Usuario/Footer/Footer.component';
 import { NavbarPrincipalComponent } from './Componentes/Navbar/navbar-principal/navbar-principal.component';
 import { NavbarOwnerComponent } from './Componentes/Navbar/navbar-owner/navbar-owner.component';
 import { NavbarDoctorComponent } from './Componentes/Navbar/navbar-doctor/navbar-doctor.component';
-
+import { NavbarAdministradorComponent } from './Componentes/Navbar/navbar-administrador/navbar-administrador.component';
 //owner
 import { InicioOwnerComponent } from './Componentes/Usuario/inicio-owner/inicio-owner.component';
 import { RecursosEducativosOwnerComponent } from './Componentes/Usuario/recursos-educativos-owner/recursos-educativos-owner.component';
@@ -73,7 +74,9 @@ const routes: Routes = [
   { path: "lista-cirugias-doctor" , component: ListaCirugiasDoctorComponent },
   { path: "citas-agendadas-doctor" , component: CitasAgendadasDoctorComponent },
   { path: "cirugia-formulario-doctor" , component: CirugiaFormularioDoctorComponent },
-  { path: "agenda-cita-doctor" , component: AgendaCitaDoctorComponent}
+  { path: "agenda-cita-doctor" , component: AgendaCitaDoctorComponent},
+  { path: "app-navbar-administrador" , component: NavbarAdministradorComponent },
+  { path: "inicio-administrador" , component: InicioAdminComponent },
   
 ];
 

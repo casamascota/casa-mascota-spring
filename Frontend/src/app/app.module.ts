@@ -65,7 +65,6 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { NavbarOwnerComponent } from './Componentes/Navbar/navbar-owner/navbar-owner.component';
 import { NavbarDoctorComponent } from './Componentes/Navbar/navbar-doctor/navbar-doctor.component';
-import { NavbarNurseComponent } from './Componentes/Navbar/navbar-nurse/navbar-nurse.component';
 import { NavbarPrincipalComponent } from './Componentes/Navbar/navbar-principal/navbar-principal.component';
 import { InicioOwnerComponent } from './Componentes/Usuario/inicio-owner/inicio-owner.component';
 import { RecursosEducativosOwnerComponent } from './Componentes/Usuario/recursos-educativos-owner/recursos-educativos-owner.component';
@@ -75,6 +74,8 @@ import { ListaTratamientosDoctorComponent } from './Componentes/Administrador/li
 import { CirugiaFormularioDoctorComponent } from './Componentes/Administrador/cirugia-formulario-doctor/cirugia-formulario-doctor.component';
 import { TratamientoFormularioDoctorComponent } from './Componentes/Administrador/tratamiento-formulario-doctor/tratamiento-formulario-doctor.component';
 import { AgendaCitaDoctorComponent } from './Componentes/Administrador/agenda-cita-doctor/agenda-cita-doctor.component';
+import { NavbarAdministradorComponent } from './Componentes/Navbar/navbar-administrador/navbar-administrador.component';
+import { InicioAdminComponent } from './Componentes/Administrador/inicio-admin/inicio-admin.component';
 
 
 @NgModule({
@@ -108,7 +109,6 @@ import { AgendaCitaDoctorComponent } from './Componentes/Administrador/agenda-ci
     ModalUpdateCitasComponent,
     NavbarOwnerComponent,
     NavbarDoctorComponent,
-    NavbarNurseComponent,
     NavbarPrincipalComponent,
     InicioOwnerComponent,
     RecursosEducativosOwnerComponent,
@@ -118,6 +118,8 @@ import { AgendaCitaDoctorComponent } from './Componentes/Administrador/agenda-ci
     CirugiaFormularioDoctorComponent,
     TratamientoFormularioDoctorComponent,
     AgendaCitaDoctorComponent,
+    NavbarAdministradorComponent,
+    InicioAdminComponent,
 
   ],
   imports: [
