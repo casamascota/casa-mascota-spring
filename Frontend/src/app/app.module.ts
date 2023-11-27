@@ -30,7 +30,7 @@ import { DetallesMascotaComponent } from './Componentes/Usuario/detalles-mascota
 import { DetalleTratamientoComponent } from './Componentes/Usuario/detalle-tratamiento/detalle-tratamiento.component';
 import { DetallesCirugiaComponent } from './Componentes/Usuario/detalles-cirugia/detalles-cirugia.component';
 import { FooterComponent } from './Componentes/Usuario/Footer/Footer.component';
-
+import { AdopcionesComponent } from './Componentes/Usuario/mascotasAdopcion/adopciones.component';
 //----Modulos
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -67,10 +67,13 @@ import { NavbarOwnerComponent } from './Componentes/Navbar/navbar-owner/navbar-o
 import { NavbarDoctorComponent } from './Componentes/Navbar/navbar-doctor/navbar-doctor.component';
 import { NavbarNurseComponent } from './Componentes/Navbar/navbar-nurse/navbar-nurse.component';
 import { NavbarPrincipalComponent } from './Componentes/Navbar/navbar-principal/navbar-principal.component';
+import { InicioOwnerComponent } from './Componentes/Usuario/inicio-owner/inicio-owner.component';
+import { RecursosEducativosOwnerComponent } from './Componentes/Usuario/recursos-educativos-owner/recursos-educativos-owner.component';
 
 
 @NgModule({
   declarations: [
+    AdopcionesComponent,
     AppComponent,
     NavBarComponent,
     FooterComponent,
@@ -101,6 +104,8 @@ import { NavbarPrincipalComponent } from './Componentes/Navbar/navbar-principal/
     NavbarDoctorComponent,
     NavbarNurseComponent,
     NavbarPrincipalComponent,
+    InicioOwnerComponent,
+    RecursosEducativosOwnerComponent,
 
   ],
   imports: [
