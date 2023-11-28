@@ -95,8 +95,13 @@ public class PersonaBl implements PersonaDao{
 
     @Override
     public List<Persona> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+
+        try {
+            return personaDao.findAll();
+        } catch (Exception e) {
+            return null;
+        }
+
     }
 
     @Override

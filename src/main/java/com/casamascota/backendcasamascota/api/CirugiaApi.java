@@ -17,7 +17,7 @@ import com.casamascota.backendcasamascota.bl.CirugiaBl;
 import com.casamascota.backendcasamascota.entity.Cirugia;
 
 @RestController
-@RequestMapping("/api/v1/cirugia/")
+    @RequestMapping("/api/v1/cirugia/")
 public class CirugiaApi {
     
     @Autowired

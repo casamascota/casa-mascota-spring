@@ -99,8 +99,11 @@ public class UsuarioBl implements UsuarioDao {
 
     @Override
     public List<Usuario> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+       try {
+           return usuarioDao.findAll();
+       } catch (Exception e) {
+           return null;
+       }
     }
 
     @Override
