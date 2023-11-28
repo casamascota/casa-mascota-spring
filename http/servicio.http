@@ -1,0 +1,29 @@
+# Consulta para crear un servicio
+POST http://localhost:8080/api/v1/servicio/
+Content-Type: application/json
+
+{
+    "tipo": "tipo",
+    "descripcion": "descripcion",
+    "precio": 0.0
+}
+
+###
+# Consulta para mostrar servicios
+GET http://localhost:8080/api/v1/servicio/
+
+###
+# Consulta para actualizar un servicio
+PUT http://localhost:8080/api/v1/servicio/
+Content-Type: application/json
+
+{
+    "id_servicio": 1,
+    "tipo": "Consulta",
+    "descripcion": "descripcion",
+    "precio": 0.0
+}
+
+###
+# Consulta para eliminar un servicio
+DELETE http://localhost:8080/api/v1/servicio/?servicioId=2
