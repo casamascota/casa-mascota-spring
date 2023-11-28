@@ -1,0 +1,29 @@
+# Consulta para crear medicamento
+POST http://localhost:8080/api/v1/medicamentos/
+Content-Type: application/json
+
+{
+    "nombre": "Paracetamol",
+    "tipo": "Jarabe",
+    "fecha_cad": "2021-12-31"
+}
+
+###
+# Consulta para mostrar medicamentos
+GET http://localhost:8080/api/v1/medicamentos/
+
+###
+# Consulta para actualizar medicamento
+PUT http://localhost:8080/api/v1/medicamentos/
+Content-Type: application/json
+
+{
+    "id_med": 1,
+    "nombre": "Paracetamol",
+    "tipo": "Pastillas",
+    "fecha_cad": "2021-12-31"
+}
+
+###
+# Consulta para eliminar medicamento
+DELETE http://localhost:8080/api/v1/medicamentos/?medicamentoId=2
