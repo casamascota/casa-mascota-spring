@@ -1,0 +1,37 @@
+# Consulta para crear un diagnostico
+POST http://localhost:8080/api/v1/diagnostico/
+Content-Type: application/json
+
+{
+    "diagnostico": "diagnostico",
+    "revision": {
+        "id_revision": 4
+    },
+    "usuario": {
+        "id_usuario": 1
+    }
+}
+
+###
+# Consulta para mostrar diagnosticos
+GET http://localhost:8080/api/v1/diagnostico/
+
+###
+# Consulta para actualizar diagnostico
+PUT http://localhost:8080/api/v1/diagnostico/
+Content-Type: application/json
+
+{
+    "id_diagnostico": 1,
+    "diagnostico": "diagnostico diagnosticado",
+    "revision": {
+        "id_revision": 4
+    },
+    "usuario": {
+        "id_usuario": 1
+    }
+}
+
+###
+# Consulta para eliminar diagnostico
+DELETE http://localhost:8080/api/v1/diagnostico/?diagnosticoId=2
