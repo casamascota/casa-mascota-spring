@@ -1,0 +1,26 @@
+###
+# Consulta para crear tipo
+POST http://localhost:8080/api/v1/tipoDoc/
+Content-Type: application/json
+
+{
+    "tipo": "CCV"
+}
+
+###
+# Consulta para mostrar tipos
+GET http://localhost:8080/api/v1/tipoDoc/
+
+###
+# Consulta para actualizar tipo
+PUT http://localhost:8080/api/v1/tipoDoc/
+Content-Type: application/json
+
+{
+    "id_tipoDoc": 1,
+    "tipo": "CCC"
+}
+
+###
+# Consulta para eliminar tipo
+DELETE http://localhost:8080/api/v1/tipoDoc/?tipoDocumentoId=1

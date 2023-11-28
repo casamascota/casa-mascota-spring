@@ -17,20 +17,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "DocumentoAdopcion")
-public class DocumentoAdopcion {
+@Table(name="Coordenadas")
+public class Coordenadas {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_comprobante;
-    private String documento;
-
-    @ManyToOne
-    @JoinColumn(name = "id_adoptadas")
-    private MascotasAdoptadas mascotasAdoptadas;
-
-    @ManyToOne
-    @JoinColumn(name = "id_tipoDoc")
-    private TipoDocumento tipoDocumento;
+    private Long id_coordenada;
+    private int orden;
+    private double latitud;
+    private double longitud;
     
+    @ManyToOne
+    @JoinColumn(name = "id_areasFaltaVacunar")
+    private AreasFaltaVacunar areasFaltaVacunar;
+
+    @ManyToOne
+    @JoinColumn(name = "id_areasVacunadas")
+    private AreasVacunadas areasVacunadas;
 }

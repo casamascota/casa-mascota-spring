@@ -1,0 +1,45 @@
+# Consulta para crear una coordenada
+POST http://localhost:8080/api/v1/coordenadas/
+Content-Type: application/json
+
+{
+    "orden": 1,
+    "latitud": 4.123456,
+    "longitud": -74.123456,
+    "areasFaltaVacunar": {
+        "id_areaFaltaVacunar": null
+    },
+    "areasVacunadas": {
+        "id_areaVacunada": 1
+    }
+}
+
+###
+# Consulta para mostrar todas las coordenadas
+GET http://localhost:8080/api/v1/coordenadas/
+
+###
+# Consulta para mostrar coordenada por id de areaFaltaVacunar
+GET http://localhost:8080/api/v1/coordenadas/areaFaltaVacunar/?id=1
+
+###
+# Consulta para mostrar coordenada por id de areaVacunada
+GET http://localhost:8080/api/v1/coordenadas/areaVacunada/?id=1
+
+###
+# Consulta para actualizar una coordenada
+PUT http://localhost:8080/api/v1/coordenadas/
+Content-Type: application/json
+
+{
+    "id_coordenada": 1,
+    "orden": 1,
+    "latitud": "4.123456",
+    "longitud": "-74.123456",
+    "areasFaltaVacunar": {
+        "id_areaFaltaVacunar": 1
+    },
+    "areasVacunadas": {
+        "id_areaVacunada": null
+    }
+}

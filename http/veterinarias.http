@@ -1,0 +1,33 @@
+# Consulta para crear veterianria
+POST http://localhost:8080/api/v1/veterinarias/
+Content-Type: application/json
+
+{
+    "mascotas_at": 5,
+    "cant_duenos": 5,
+    "cant_person": 5,
+    "nombre": "nombre",
+    "direccion": "direccion",
+    "C_X": "C_X",
+    "C_Y": "C_Y"
+}
+
+###
+# Consulta para mostrar veterinarias
+GET http://localhost:8080/api/v1/veterinarias/
+
+### 
+# Consulta para actualizar veterinaria
+PUT http://localhost:8080/api/v1/veterinarias/
+Content-Type: application/json
+
+{
+    "id_veterinaria": 1,
+    "mascotas_at": 10,
+    "cant_duenos": 5,
+    "cant_person": 5,
+    "nombre": "nombre",
+    "direccion": "direccion",
+    "C_X": "C_X",
+    "C_Y": "C_Y"
+}

@@ -1,4 +1,4 @@
-package com.casamascota.backendcasamascota.security;
+/*package com.casamascota.backendcasamascota.security;
 
 
 import org.springframework.beans.factory.annotation.Value;
@@ -33,7 +33,7 @@ public class SecurityConfig {
                                 .authorizeHttpRequests(authorize -> authorize
                                         .requestMatchers("/").permitAll()
                                         .anyRequest().authenticated()
-                                );*/
+                                );
         http
                 .authorizeHttpRequests(authorize -> authorize
 
@@ -60,3 +60,4 @@ public class SecurityConfig {
     }
 }
 
+*/

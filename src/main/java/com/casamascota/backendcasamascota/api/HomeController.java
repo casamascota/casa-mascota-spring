@@ -1,4 +1,4 @@
-package com.casamascota.backendcasamascota.api;
+/*package com.casamascota.backendcasamascota.api;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Controller for the home page. para renderizarme la vista :)
- */
+ *
 @Controller
 public class HomeController {
 
@@ -21,4 +21,4 @@ public class HomeController {
         return "index";
     }
 
-}
+}*/

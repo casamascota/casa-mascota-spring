@@ -13,6 +13,8 @@ import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuer
 import org.springframework.stereotype.Service;
 
 import com.casamascota.backendcasamascota.dao.DocumentoAdopcionDao;
+import com.casamascota.backendcasamascota.dao.MascotasAdoptadasDao;
+import com.casamascota.backendcasamascota.dao.TipoDocumentoDao;
 import com.casamascota.backendcasamascota.entity.DocumentoAdopcion;
 import com.casamascota.backendcasamascota.entity.MascotasAdoptadas;
 import com.casamascota.backendcasamascota.entity.TipoDocumento;
@@ -24,10 +26,10 @@ public class DocumentoAdopcionBl implements DocumentoAdopcionDao {
     private DocumentoAdopcionDao documentoAdopcionDao;
 
     @Autowired
-    private MascotasAdoptadasBl mascotasAdoptadasBl;
+    private MascotasAdoptadasDao mascotasAdoptadasDao;
 
     @Autowired
-    private TipoDocumentoBl tipoDocumentoBl;
+    private TipoDocumentoDao tipoDocumentoDao;
 
     @Override
     public void flush() {
@@ -119,8 +121,8 @@ public class DocumentoAdopcionBl implements DocumentoAdopcionDao {
     @Override
     public <S extends DocumentoAdopcion> S save(S entity) {
         try {
-            Optional<MascotasAdoptadas> mascotaAdoptada = mascotasAdoptadasBl.findById(entity.getMascotasAdoptadas().getId_adoptadas());
-            Optional<TipoDocumento> tipoDoc = tipoDocumentoBl.findById(entity.getTipoDocumento().getId_tipoDoc());
+            Optional<MascotasAdoptadas> mascotaAdoptada = mascotasAdoptadasDao.findById(entity.getMascotasAdoptadas().getId_adoptadas());
+            Optional<TipoDocumento> tipoDoc = tipoDocumentoDao.findById(entity.getTipoDocumento().getId_tipoDoc());
 
             entity.setMascotasAdoptadas(mascotaAdoptada.get());
             entity.setTipoDocumento(tipoDoc.get());

@@ -1,0 +1,33 @@
+# Consulta para crear refugio
+POST http://localhost:8080/api/v1/refugios/
+Content-Type: application/json
+
+{
+    "cant_animal": 5,
+    "nombre": "Refugio de animales",
+    "direccion": "Calle 123",
+    "personal": 5,
+    "espa_tot": 100,
+    "C_X": "C_X",
+    "C_Y": "C_Y"
+}
+
+### 
+# Consulta para mostrar refugios
+GET http://localhost:8080/api/v1/refugios/
+
+###
+# Consulta para actualizar refugio
+PUT http://localhost:8080/api/v1/refugios/
+Content-Type: application/json
+
+{
+    "id_refugio": 1,
+    "cant_animal": 10,
+    "nombre": "Refugio de animales",
+    "direccion": "Calle 123",
+    "personal": 5,
+    "espa_tot": 100,
+    "C_X": "C_X",
+    "C_Y": "C_Y"
+}

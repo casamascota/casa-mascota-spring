@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +25,7 @@ public class DocumentosAdopcionApi {
     private DocumentoAdopcionBl documentoAdopcionBl;
 
     @PostMapping
-    private ResponseEntity<DocumentoAdopcion> create(DocumentoAdopcion documentoAdopcion) {
+    private ResponseEntity<DocumentoAdopcion> create(@RequestBody DocumentoAdopcion documentoAdopcion) {
         return ResponseEntity.ok(documentoAdopcionBl.save(documentoAdopcion));
     }
 
@@ -34,13 +34,13 @@ public class DocumentosAdopcionApi {
         return ResponseEntity.ok(documentoAdopcionBl.findAll());
     }
 
-    @GetMapping("/{documentoAdopcionId}")
-    private ResponseEntity<Optional<DocumentoAdopcion>> findById(@PathVariable("documentoAdopcionId") Long documentoAdopcionId) {
+    @GetMapping("/id/")
+    private ResponseEntity<Optional<DocumentoAdopcion>> findById(@RequestParam("documentoAdopcionId") Long documentoAdopcionId) {
         return ResponseEntity.ok(documentoAdopcionBl.findById(documentoAdopcionId));
     }
 
     @PutMapping
-    private ResponseEntity<DocumentoAdopcion> update(DocumentoAdopcion documentoAdopcion) {
+    private ResponseEntity<DocumentoAdopcion> update(@RequestBody DocumentoAdopcion documentoAdopcion) {
         return ResponseEntity.ok(documentoAdopcionBl.save(documentoAdopcion));
     }
 

@@ -1,0 +1,35 @@
+# Consulta para crear area
+POST http://localhost:8080/api/v1/areasfaltavacunar/
+Content-Type: application/json
+
+{
+    "cant_duenos": 8,
+    "cant_mascot": 10,
+    "dosis_prog": 10,
+    "brote_enfer": "no se xd",
+    "enfermedad": "rabia",
+    "refgis_mordida": "no se xd",
+    "fecha_prog": "2021-06-01",
+    "personal": 5
+}
+
+###
+# Consulta para mostrar todas las areas
+GET http://localhost:8080/api/v1/areasfaltavacunar/
+
+###
+# Consulta para actualizar area
+PUT http://localhost:8080/api/v1/areasfaltavacunar/
+Content-Type: application/json
+
+{
+    "id_areaFaltaVacunar": 1,
+    "cant_duenos": 10,
+    "cant_mascot": 15,
+    "dosis_prog": 10,
+    "brote_enfer": "no se xd",
+    "enfermedad": "rabia",
+    "refgis_mordida": "no se xd",
+    "fecha_prog": "2021-06-01",
+    "personal": 5
+}

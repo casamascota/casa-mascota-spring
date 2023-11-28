@@ -1,0 +1,51 @@
+# Consulta para crear mascota
+POST http://localhost:8080/api/v1/mascota/
+Content-Type: application/json
+
+{
+    "nombre": "Luca",
+    "raza": "Pastor Aleman",
+    "genero": "Macho",
+    "fecha_nacimiento": "2019-01-01",
+    "peso": 20.0,
+    "usuario": {
+        "id_usuario": 1
+    },
+    "especie": "Perro",
+    "enadopcion": false
+}
+
+###
+# Consulta para mostrar todas las mascota
+GET http://localhost:8080/api/v1/mascota/
+
+###
+# Consulta para mostrar todas las mascotas de un usuario
+GET http://localhost:8080/api/v1/mascota/usuario/?usuarioId=1
+
+###
+# Consulta para buscar mascota por id
+GET http://localhost:8080/api/v1/mascota/id/?mascotaId=1
+
+###
+# Consulta para actualizar mascota
+PUT http://localhost:8080/api/v1/mascota/
+Content-Type: application/json
+
+{
+    "id_mascota": 1,
+    "nombre": "Lucas",
+    "raza": "Pastor Aleman",
+    "genero": "Macho",
+    "fecha_nacimiento": "2019-01-01",
+    "peso": 20.0,
+    "usuario": {
+        "id_usuario": 1
+    },
+    "especie": "Perro",
+    "enadopcion": false
+}
+
+###
+# Consulta para eliminar mascota
+DELETE http://localhost:8080/api/v1/mascota/?mascotaId=1

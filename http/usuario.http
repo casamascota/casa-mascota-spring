@@ -1,0 +1,17 @@
+# Consulta para Crear usuario
+POST http://localhost:8080/api/v1/usuario/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "hashed_password": "1234",
+    "rol": "doctor",
+    "persona": {
+        "id_persona": 2
+    },
+    "especialidad": "Medicina General"
+}
+
+###
+# Cosulta para extraer usuario
+GET http://localhost:8080/api/v1/usuario/?usuarioId=1

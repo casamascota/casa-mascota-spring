@@ -1,0 +1,32 @@
+###
+# Consulta para crear
+POST http://localhost:8080/api/v1/mascotasAdoptadas/
+Content-Type: application/json
+
+{
+    "fecha_adopcion": "2021-05-01",
+    "mascota": {
+        "id_mascota": 2
+    }
+}
+
+###
+# Consulta para mostrar todas las mascotas adoptadas
+GET http://localhost:8080/api/v1/mascotasAdoptadas/
+
+###
+# Consulta para actualizar mascota adoptada
+PUT http://localhost:8080/api/v1/mascotasAdoptadas/
+Content-Type: application/json
+
+{
+    "id_adoptadas": 2,
+    "fecha_adopcion": "2021-05-02",
+    "mascota": {
+        "id_mascota": 2
+    }
+}
+
+###
+# Consulta para eliminar mascota adoptada
+DELETE http://localhost:8080/api/v1/mascotasAdoptadas/?mascotaId=1

@@ -1,0 +1,35 @@
+# Consulta para crear imagen
+POST http://localhost:8080/api/v1/imagenes/
+Content-Type: application/json
+
+{
+    "imagen": "imagen",
+    "mascota": {
+        "id_mascota": 2
+    }
+}
+
+###
+# Consulta para mostrar imagenes
+GET http://localhost:8080/api/v1/imagenes/
+
+###
+# Consulta para mostra imagenes de una mascota
+GET http://localhost:8080/api/v1/imagenes/mascota/?mascotaId=2
+
+###
+# Consulta para actualizar una imagen
+PUT http://localhost:8080/api/v1/imagenes/
+Content-Type: application/json
+    
+{
+    "id_imagen": 1,
+    "imagen": "imagenes",
+    "mascota": {
+        "id_mascota": 2
+    }
+}
+
+###
+# Consulta para eliminar una imagen
+DELETE http://localhost:8080/api/v1/imagenes/?imagenesId=2

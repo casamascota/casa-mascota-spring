@@ -1,0 +1,41 @@
+# Consulta para crear
+POST http://localhost:8080/api/v1/documentoAdopcion/
+Content-Type: application/json
+
+{
+    "documento": "doc",
+    "mascotasAdoptadas": {
+        "id_adoptadas": 2
+    },
+    "tipoDocumento": {
+        "id_tipoDoc": 2
+    }
+}
+
+###
+# Consulta para mostrar todos los docs
+GET http://localhost:8080/api/v1/documentoAdopcion/
+
+###
+# Consulta para mostrar un doc
+GET http://localhost:8080/api/v1/documentoAdopcion/id/?documentoAdopcionId=1
+
+###
+# Consulta para actualizar un doc
+PUT http://localhost:8080/api/v1/documentoAdopcion/
+Content-Type: application/json
+
+{
+    "id_comprobante": 1,
+    "documento": "documento",
+    "mascotasAdoptadas": {
+        "id_adoptadas": 2
+    },
+    "tipoDocumento": {
+        "id_tipoDoc": 2
+    }
+}
+
+###
+# Eliminar un doc
+DELETE http://localhost:8080/api/v1/documentoAdopcion/?documentoAdopcionId=1

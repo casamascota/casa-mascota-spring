@@ -63,7 +63,7 @@
 		<!-- dependencia para oauth0 -->
 
 		<!-- https://mvnrepository.com/artifact/com.okta.spring/okta-spring-boot-starter -->
-		<dependency>
+		<!--<dependency>
 			<groupId>com.okta.spring</groupId>
 			<artifactId>okta-spring-boot-starter</artifactId>
 			<version>3.0.5</version>
@@ -88,7 +88,7 @@
 			<dependency>
 				<groupId>nz.net.ultraq.thymeleaf</groupId>
 				<artifactId>thymeleaf-layout-dialect</artifactId>
-			</dependency>
+			</dependency>-->
 	</dependencies>
 
 	<build>

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,13 +34,13 @@ public class MascotaApi {
         return ResponseEntity.ok(mascotaBl.findAll());
     }
 
-    @GetMapping("/user/{userId}")
-    private ResponseEntity<List<Mascota>> findAllByUserId(@PathVariable("userId") Long userId) {
+    @GetMapping("/usuario/")
+    private ResponseEntity<List<Mascota>> findAllByUserId(@RequestParam("usuarioId") Long userId) {
         return ResponseEntity.ok(mascotaBl.findAllByUserId(userId));
     }
 
-    @GetMapping("/{mascotaId}")
-    private ResponseEntity<Optional<Mascota>> findById(@PathVariable("mascotaId") Long mascotaId) {
+    @GetMapping("/id/")
+    private ResponseEntity<Optional<Mascota>> findById(@RequestParam("mascotaId") Long mascotaId) {
         return ResponseEntity.ok(mascotaBl.findById(mascotaId));
     }
 

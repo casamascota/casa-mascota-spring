@@ -1,0 +1,39 @@
+# Consulta para crear area
+POST http://localhost:8080/api/v1/areasvacunadas/
+Content-Type: application/json
+
+{
+    "cant_vac": 10,
+    "cant_duenos": 10,
+    "masc_sin_hogar": 2,
+    "cuant_vac": 15,
+    "con_b": 1,
+    "enfermedad": "rabia",
+    "brote_enfer": "no",
+    "reg_de_m": "si",
+    "fecha": "2021-10-10",
+    "personal_li": "si"
+}
+
+###
+# Consulta para mostrar areas
+GET http://localhost:8080/api/v1/areasvacunadas/
+
+###
+# Consulta para actualizar area
+PUT http://localhost:8080/api/v1/areasvacunadas/
+Content-Type: application/json
+
+{
+    "id_areaVacunada": 1,
+    "cant_vac": 15,
+    "cant_duenos": 10,
+    "masc_sin_hogar": 2,
+    "cuant_vac": 15,
+    "con_b": 1,
+    "enfermedad": "rabia",
+    "brote_enfer": "no",
+    "reg_de_m": "si",
+    "fecha": "2021-10-10",
+    "personal_li": "si"
+}

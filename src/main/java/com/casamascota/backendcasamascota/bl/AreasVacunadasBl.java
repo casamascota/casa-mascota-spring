@@ -12,18 +12,14 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
 import org.springframework.stereotype.Service;
 
-import com.casamascota.backendcasamascota.dao.MascotasAdoptadasDao;
-import com.casamascota.backendcasamascota.entity.Mascota;
-import com.casamascota.backendcasamascota.entity.MascotasAdoptadas;
+import com.casamascota.backendcasamascota.dao.AreasVacunadasDao;
+import com.casamascota.backendcasamascota.entity.AreasVacunadas;
 
 @Service
-public class MascotasAdoptadasBl implements MascotasAdoptadasDao {
+public class AreasVacunadasBl implements AreasVacunadasDao {
 
     @Autowired
-    private MascotasAdoptadasDao mascotasAdoptadasDao;
-
-    @Autowired
-    private MascotaBl mascotaBl;
+    private AreasVacunadasDao areasVacunadasDao;
 
     @Override
     public void flush() {
@@ -32,19 +28,19 @@ public class MascotasAdoptadasBl implements MascotasAdoptadasDao {
     }
 
     @Override
-    public <S extends MascotasAdoptadas> S saveAndFlush(S entity) {
+    public <S extends AreasVacunadas> S saveAndFlush(S entity) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'saveAndFlush'");
     }
 
     @Override
-    public <S extends MascotasAdoptadas> List<S> saveAllAndFlush(Iterable<S> entities) {
+    public <S extends AreasVacunadas> List<S> saveAllAndFlush(Iterable<S> entities) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'saveAllAndFlush'");
     }
 
     @Override
-    public void deleteAllInBatch(Iterable<MascotasAdoptadas> entities) {
+    public void deleteAllInBatch(Iterable<AreasVacunadas> entities) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteAllInBatch'");
     }
@@ -62,70 +58,67 @@ public class MascotasAdoptadasBl implements MascotasAdoptadasDao {
     }
 
     @Override
-    public MascotasAdoptadas getOne(Long id) {
+    public AreasVacunadas getOne(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getOne'");
     }
 
     @Override
-    public MascotasAdoptadas getById(Long id) {
+    public AreasVacunadas getById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getById'");
     }
 
     @Override
-    public MascotasAdoptadas getReferenceById(Long id) {
+    public AreasVacunadas getReferenceById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getReferenceById'");
     }
 
     @Override
-    public <S extends MascotasAdoptadas> List<S> findAll(Example<S> example) {
+    public <S extends AreasVacunadas> List<S> findAll(Example<S> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public <S extends MascotasAdoptadas> List<S> findAll(Example<S> example, Sort sort) {
+    public <S extends AreasVacunadas> List<S> findAll(Example<S> example, Sort sort) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public <S extends MascotasAdoptadas> List<S> saveAll(Iterable<S> entities) {
+    public <S extends AreasVacunadas> List<S> saveAll(Iterable<S> entities) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'saveAll'");
     }
 
     @Override
-    public List<MascotasAdoptadas> findAll() {
+    public List<AreasVacunadas> findAll() {
         try {
-            return mascotasAdoptadasDao.findAll();
+            return areasVacunadasDao.findAll();
         } catch (Exception e) {
             return null;
         }
     }
 
     @Override
-    public List<MascotasAdoptadas> findAllById(Iterable<Long> ids) {
+    public List<AreasVacunadas> findAllById(Iterable<Long> ids) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAllById'");
     }
 
     @Override
-    public <S extends MascotasAdoptadas> S save(S entity) {
+    public <S extends AreasVacunadas> S save(S entity) {
         try {
-            Optional<Mascota> mascota = mascotaBl.findById(entity.getMascota().getId_mascota());
-            entity.setMascota(mascota.get());
-
-            return mascotasAdoptadasDao.save(entity);
+            return areasVacunadasDao.save(entity);
         } catch (Exception e) {
             return null;
         }
     }
 
     @Override
-    public Optional<MascotasAdoptadas> findById(Long id) {
+    public Optional<AreasVacunadas> findById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findById'");
     }
@@ -144,20 +137,14 @@ public class MascotasAdoptadasBl implements MascotasAdoptadasDao {
 
     @Override
     public void deleteById(Long id) {
-        try {
-            mascotasAdoptadasDao.deleteById(id);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
     }
 
     @Override
-    public void delete(MascotasAdoptadas entity) {
-        try {
-            mascotasAdoptadasDao.delete(entity);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
+    public void delete(AreasVacunadas entity) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     @Override
@@ -167,7 +154,7 @@ public class MascotasAdoptadasBl implements MascotasAdoptadasDao {
     }
 
     @Override
-    public void deleteAll(Iterable<? extends MascotasAdoptadas> entities) {
+    public void deleteAll(Iterable<? extends AreasVacunadas> entities) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteAll'");
     }
@@ -179,43 +166,43 @@ public class MascotasAdoptadasBl implements MascotasAdoptadasDao {
     }
 
     @Override
-    public List<MascotasAdoptadas> findAll(Sort sort) {
+    public List<AreasVacunadas> findAll(Sort sort) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public Page<MascotasAdoptadas> findAll(Pageable pageable) {
+    public Page<AreasVacunadas> findAll(Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public <S extends MascotasAdoptadas> Optional<S> findOne(Example<S> example) {
+    public <S extends AreasVacunadas> Optional<S> findOne(Example<S> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findOne'");
     }
 
     @Override
-    public <S extends MascotasAdoptadas> Page<S> findAll(Example<S> example, Pageable pageable) {
+    public <S extends AreasVacunadas> Page<S> findAll(Example<S> example, Pageable pageable) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
     @Override
-    public <S extends MascotasAdoptadas> long count(Example<S> example) {
+    public <S extends AreasVacunadas> long count(Example<S> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'count'");
     }
 
     @Override
-    public <S extends MascotasAdoptadas> boolean exists(Example<S> example) {
+    public <S extends AreasVacunadas> boolean exists(Example<S> example) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'exists'");
     }
 
     @Override
-    public <S extends MascotasAdoptadas, R> R findBy(Example<S> example,
+    public <S extends AreasVacunadas, R> R findBy(Example<S> example,
             Function<FetchableFluentQuery<S>, R> queryFunction) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findBy'");
