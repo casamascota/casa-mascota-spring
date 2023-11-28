@@ -1,0 +1,35 @@
+# Consulta para crear tratamientoMed
+POST http://localhost:8080/api/v1/tratamientoMed/
+Content-Type: application/json
+
+{
+    "medicamentos": {
+        "id_med": 1
+    },
+    "tratamiento": {
+        "id_trat": 1
+    }
+}
+
+###
+# Consulta para mostrar tratamientoMed
+GET http://localhost:8080/api/v1/tratamientoMed/
+
+###
+# Consulta para actualizar tratamientoMed
+PUT http://localhost:8080/api/v1/tratamientoMed/
+Content-Type: application/json
+
+{
+    "id_trat_med": 1,
+    "medicamentos": {
+        "id_med": 1
+    },
+    "tratamiento": {
+        "id_trat": 2
+    }
+}
+
+### 
+# Consulta para eliminar tratamientoMed
+DELETE http://localhost:8080/api/v1/tratamientoMed/?tratamientoMedId=3
