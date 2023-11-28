@@ -1,0 +1,37 @@
+# Consulta para crear revision
+POST http://localhost:8080/api/v1/revision/
+Content-Type: application/json
+
+{
+    "descripcion": "Revision de prueba",
+    "citaAgendada": {
+        "id_cita": 4
+    },
+    "usuario":{
+        "id_usuario": 1
+    }
+}
+
+###
+# Consulta para mostrar revisiones
+GET http://localhost:8080/api/v1/revision/
+
+###
+# Consulta para actualizar revision
+PUT http://localhost:8080/api/v1/revision/
+Content-Type: application/json
+
+{
+    "id_revision": 4,
+    "descripcion": "Revision de prueba probada",
+    "citaAgendada": {
+        "id_cita": 4
+    },
+    "usuario":{
+        "id_usuario": 1
+    }
+}
+
+###
+# Consulta para eliminar revision
+DELETE http://localhost:8080/api/v1/revision/?revisionId=1
