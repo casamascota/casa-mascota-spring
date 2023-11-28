@@ -1,5 +1,5 @@
 # Consulta para crear cirugia
-POST  http://localhost:8080/api/cirugia/
+POST  http://localhost:8080/api/v1/cirugia/
 Content-Type: application/json
 
 {
@@ -16,11 +16,11 @@ Content-Type: application/json
 
 ###
 # Consulta para mostrar cirugias
-GET  http://localhost:8080/api/cirugia/
+GET  http://localhost:8080/api/v1/cirugia/
 
 ###
 # Consulta para actualizar cirugia
-PUT  http://localhost:8080/api/cirugia/
+PUT  http://localhost:8080/api/v1/cirugia/
 Content-Type: application/json
 
 {
@@ -38,5 +38,5 @@ Content-Type: application/json
 
 ###
 # Consulta para eliminar cirugia
-DELETE  http://localhost:8080/api/cirugia/?cirugiaId=2
+DELETE  http://localhost:8080/api/v1/cirugia/?cirugiaId=2
 

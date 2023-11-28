@@ -1,0 +1,41 @@
+# Consulta para crear un tratamiento
+POST http://localhost:8080/api/v1/tratamiento/
+Content-Type: application/json
+
+{
+    "descripcion": "Tratamiento para la diabetes",
+    "fecha_inicio": "2021-05-01",
+    "fecha_final": "2021-05-30",
+    "diagnostico": {
+        "id_diagnostico": 1
+    },
+    "usuario": {
+        "id_usuario": 1
+    }
+}
+
+###
+# Consulta para mostrar tratamientos
+GET http://localhost:8080/api/v1/tratamiento/
+
+###
+# Consulta para actualizar tratamiento
+PUT http://localhost:8080/api/v1/tratamiento/
+Content-Type: application/json
+
+{
+    "id_trat": 1,
+    "descripcion": "Tratamiento para la diabetes tipo 2",
+    "fecha_inicio": "2021-05-01",
+    "fecha_final": "2021-05-30",
+    "diagnostico": {
+        "id_diagnostico": 1
+    },
+    "usuario": {
+        "id_usuario": 1
+    }
+}
+
+###
+# Consulta para eliminar tratamiento
+DELETE http://localhost:8080/api/v1/tratamiento/?tratamientoId=3
