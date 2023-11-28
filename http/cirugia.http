@@ -1,0 +1,42 @@
+# Consulta para crear cirugia
+POST  http://localhost:8080/api/cirugia/
+Content-Type: application/json
+
+{
+    "fecha": "2021-05-01",
+    "cirugiahecha": false,
+    "precio": 500.5,
+    "diagnostico": {
+        "id_diagnostico": 1
+    },
+    "usuario": {
+        "id_usuario": 1
+    }
+}
+
+###
+# Consulta para mostrar cirugias
+GET  http://localhost:8080/api/cirugia/
+
+###
+# Consulta para actualizar cirugia
+PUT  http://localhost:8080/api/cirugia/
+Content-Type: application/json
+
+{
+    "id_cirugia": 1,
+    "fecha": "2021-05-01",
+    "cirugiahecha": true,
+    "precio": 500.5,
+    "diagnostico": {
+        "id_diagnostico": 1
+    },
+    "usuario": {
+        "id_usuario": 1
+    }
+}
+
+###
+# Consulta para eliminar cirugia
+DELETE  http://localhost:8080/api/cirugia/?cirugiaId=2
+
