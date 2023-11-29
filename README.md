@@ -102,3 +102,24 @@ Nota: Una vez hecho el paso 1, para volver a correr el contenedor de docker(que 
 docker start pets
 ```
 ---
+### Seguridad:
+Para este proyecto se utilizo el manejo de roles y permisos, para ello se utilizo la libreria de Spring Security
+tambien con auth0 se hizo el manejo de roles con RBAC(Role Based Access Control)
+Roles y accesos:
+1. Doctor (Administrador)
+   API Endpoint: /api/v3/doctor/*
+   Operaciones Permitidas: GET, POST, PUT, DELETE
+   Descripción: Como administrador, el doctor tiene acceso completo para gestionar citas, diagnósticos, tratamientos y cirugías.
+2. Owner (Cliente)
+   API Endpoint: /api/v3/owner/*
+   Operaciones Permitidas: GET (para sus mascotas y citas), POST (reservar citas)
+   Descripción: El cliente puede ver la información de sus mascotas, historial de citas y reservar nuevas citas.
+3. Enfermero
+   API Endpoint: /api/v3/nurse/*
+   Operaciones Permitidas: GET (información de citas y mascotas), POST (asistir en diagnósticos y tratamientos), PUT (actualizar información de seguimiento)
+   Descripción: El enfermero asiste en la gestión de citas y cuidados de las mascotas.
+4. Estilista
+   API Endpoint: /api/v3/stylist/*
+   Operaciones Permitidas: GET (información de citas), POST (agendar servicios de estilismo), PUT (actualizar detalles del servicio)
+   Descripción: El estilista gestiona y provee servicios de estilismo y cuidado de las mascotas.
+
