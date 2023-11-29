@@ -1,5 +1,6 @@
 package com.casamascota.backendcasamascota.bl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -104,6 +105,23 @@ public class UsuarioBl implements UsuarioDao {
        } catch (Exception e) {
            return null;
        }
+    }
+
+    public List<Usuario> findAllByRol(String rol) {
+        try {
+            List<Usuario> usuarios = usuarioDao.findAll();
+            List<Usuario> usuariosFiltrados = new ArrayList<>();
+
+            for (Usuario usuario : usuarios) {
+                if (usuario.getRol().equals(rol)) {
+                    usuariosFiltrados.add(usuario);
+                }
+            }
+
+            return usuariosFiltrados;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
