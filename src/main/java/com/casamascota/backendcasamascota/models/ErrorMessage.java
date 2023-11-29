@@ -1,14 +1,14 @@
-package com.casamascota.backendcasamascota.models;
-
-
-import lombok.Value;
-
-@Value
-public class ErrorMessage {
-
-    private String message;
-
-    public static ErrorMessage from(final String message) {
-        return new ErrorMessage(message);
-    }
-}
+//package com.casamascota.backendcasamascota.models;
+//
+//
+//import lombok.Value;
+//
+//@Value
+//public class ErrorMessage {
+//
+//    private String message;
+//
+//    public static ErrorMessage from(final String message) {
+//        return new ErrorMessage(message);
+//    }
+//}
