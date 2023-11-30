@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+import com.casamascota.backendcasamascota.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -120,17 +121,30 @@ public class CirugiaBl implements CirugiaDao {
 
     @Override
     public <S extends Cirugia> S save(S entity) {
-        try {
-            Optional<Diagnostico> diagnostico = diagnosticoDao.findById(entity.getDiagnostico().getId_diagnostico());
-            Optional<Usuario> usuario = usuarioDao.findById(entity.getUsuario().getId_usuario());
+        Optional<Diagnostico> diagnostico = diagnosticoDao.findById(entity.getDiagnostico().getId_diagnostico());
+        Optional<Usuario> usuario = usuarioDao.findById(entity.getUsuario().getId_usuario());
 
-            entity.setDiagnostico(diagnostico.get());
-            entity.setUsuario(usuario.get());
+        entity.setDiagnostico(diagnostico.get());
+        entity.setUsuario(usuario.get());
 
-            return cirugiaDao.save(entity);
-        } catch (Exception e) {
-            return null;
+        if(usuario.get().getId_usuario() == null){
+            try {
+                throw new UserNotFoundException("El usuario no fue encontrado");
+            } catch (UserNotFoundException e) {
+                throw new RuntimeException(e);
+            }
         }
+
+        if(diagnostico.get().getId_diagnostico() == null){
+            try {
+                throw new UserNotFoundException("El diagnostico no fue encontrado");
+            } catch (UserNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        return cirugiaDao.save(entity);
+
     }
 
     @Override

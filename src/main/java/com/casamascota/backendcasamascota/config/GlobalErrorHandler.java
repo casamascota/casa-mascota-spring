@@ -4,6 +4,7 @@ import com.casamascota.backendcasamascota.dto.ResponseDto;
 import com.casamascota.backendcasamascota.exception.BadRequestException;
 import com.casamascota.backendcasamascota.exception.PetMissingException;
 import com.casamascota.backendcasamascota.exception.UnknownException;
+import com.casamascota.backendcasamascota.exception.UserNotFoundException;
 import com.casamascota.backendcasamascota.models.ErrorMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,6 +46,12 @@ public class GlobalErrorHandler {
     @ExceptionHandler(PetMissingException.class)
     public ResponseEntity<ResponseDto> handlePetMissingException(PetMissingException e) {
         ResponseDto responseDto = new ResponseDto("9001", e.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseDto);
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ResponseDto> handleUserNotFoundException(UserNotFoundException e) {
+        ResponseDto responseDto = new ResponseDto("9002", e.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseDto);
     }
 
