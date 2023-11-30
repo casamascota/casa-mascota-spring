@@ -3,6 +3,8 @@ package com.casamascota.backendcasamascota.security;
 import java.io.IOException;
 
 import com.casamascota.backendcasamascota.models.ErrorMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
@@ -22,12 +24,14 @@ public class AuthenticationErrorHandler implements AuthenticationEntryPoint {
 
     private final ObjectMapper mapper;
 
+    Logger logger = LoggerFactory.getLogger(AuthenticationErrorHandler.class);
     @Override
     public void commence(
             final HttpServletRequest request,
             final HttpServletResponse response,
             final AuthenticationException authException
     ) throws IOException, ServletException {
+        logger.error("Authentication error", authException);
         final var errorMessage = ErrorMessage.from("Requires authentication");
         final var json = mapper.writeValueAsString(errorMessage);
 

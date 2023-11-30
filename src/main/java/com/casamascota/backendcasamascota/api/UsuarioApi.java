@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.casamascota.backendcasamascota.entity.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,16 +24,19 @@ public class UsuarioApi {
     @Autowired
     private UsuarioBl usuarioBl;
 
+    //@PreAuthorize("hasRole('admin')")
     @PostMapping("usuario/")
     private ResponseEntity<Usuario> create(@RequestBody Usuario usuario) {
         return ResponseEntity.ok(usuarioBl.save(usuario));
     }
 
     @GetMapping("usuario/")
+    //@PreAuthorize("hasRole('admin')")
     private ResponseEntity<Optional<Usuario>> findById(@RequestParam("usuarioId") Long usuarioId) {
         return ResponseEntity.ok(usuarioBl.findById(usuarioId));
     }
     @GetMapping("usuarios/")
+    //@PreAuthorize("hasRole('admin')")
     public ResponseEntity<List<Usuario>> getAllPersonas() {
         List<Usuario> usuarios = usuarioBl.findAll();
         return ResponseEntity.ok(usuarios);
