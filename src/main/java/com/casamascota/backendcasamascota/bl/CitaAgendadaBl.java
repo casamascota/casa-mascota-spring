@@ -5,6 +5,8 @@ import java.util.Optional;
 import java.util.function.Function;
 
 import com.casamascota.backendcasamascota.dao.MascotaDao;
+import com.casamascota.backendcasamascota.dao.ServicioDao;
+import com.casamascota.backendcasamascota.dto.CitaAgendadaDto;
 import com.casamascota.backendcasamascota.entity.Mascota;
 import com.casamascota.backendcasamascota.entity.Servicio;
 import com.casamascota.backendcasamascota.entity.Usuario;
@@ -28,6 +30,8 @@ public class CitaAgendadaBl implements CitaAgendadaDao {
 
     @Autowired
     private MascotaDao mascotaDao;
+    @Autowired
+    private ServicioDao servicioDao;
 
     @Override
     public void flush() {
@@ -143,6 +147,39 @@ public class CitaAgendadaBl implements CitaAgendadaDao {
             }
         }
         return citaAgendadaDao.save(entity);
+    }
+
+    public void saveAppointment(CitaAgendadaDto citaAgendadaDto) throws PetMissingException {
+
+        if(citaAgendadaDto.getId_mascota() == null){
+            throw new PetMissingException("El id de la mascota no puede ser nulo");
+        }
+        if(citaAgendadaDto.getId_servicio() == null){
+            throw new PetMissingException("El id del servicio no puede ser nulo");
+        }
+        if(citaAgendadaDto.getFecha_cita() == null){
+            throw new PetMissingException("La fecha de la cita no puede ser nula");
+        }
+        if(citaAgendadaDto.getFecha_reserva() == null){
+            throw new PetMissingException("La fecha de la reserva no puede ser nula");
+        }
+        if(citaAgendadaDto.getId_usuario() == null){
+            throw new PetMissingException("El id del usuario no puede ser nulo");
+        }
+
+
+        Mascota mascota = mascotaDao.findById(citaAgendadaDto.getId_mascota()).get();
+        Servicio servicio = servicioDao.findById(citaAgendadaDto.getId_servicio()).get();
+        Usuario usuario = mascota.getUsuario();
+        servicio.setId_servicio(citaAgendadaDto.getId_servicio());
+        CitaAgendada citaAgendada = new CitaAgendada();
+        citaAgendada.setFecha_cita(citaAgendadaDto.getFecha_cita());
+        citaAgendada.setFecha_reserva(citaAgendadaDto.getFecha_reserva());
+        citaAgendada.setMascota(mascota);
+        citaAgendada.setServicio(servicio);
+        citaAgendada.setUsuario(usuario);
+        citaAgendadaDao.save(citaAgendada);
+
     }
 
     @Override
