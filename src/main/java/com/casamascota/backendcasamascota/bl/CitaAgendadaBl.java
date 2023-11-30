@@ -4,6 +4,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+import com.casamascota.backendcasamascota.dao.MascotaDao;
+import com.casamascota.backendcasamascota.entity.Mascota;
+import com.casamascota.backendcasamascota.entity.Servicio;
+import com.casamascota.backendcasamascota.entity.Usuario;
+import com.casamascota.backendcasamascota.exception.PetMissingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -20,6 +25,9 @@ public class CitaAgendadaBl implements CitaAgendadaDao {
 
     @Autowired
     private CitaAgendadaDao citaAgendadaDao;
+
+    @Autowired
+    private MascotaDao mascotaDao;
 
     @Override
     public void flush() {
@@ -110,20 +118,44 @@ public class CitaAgendadaBl implements CitaAgendadaDao {
 
     @Override
     public <S extends CitaAgendada> S save(S entity) {
-        try {
-            return citaAgendadaDao.save(entity);
-        } catch (Exception e) {
-            return null;
+        Mascota mascota = mascotaDao.findById(entity.getMascota().getId_mascota()).get();
+        Usuario usuario = mascota.getUsuario();
+        Servicio servicio = entity.getServicio();
+        if(mascota.getId_mascota() == null){
+            try {
+                throw new PetMissingException("Mascota no encontrada");
+            } catch (PetMissingException e) {
+                e.printStackTrace();
+            }
         }
+        if(usuario == null){
+            try {
+                throw new PetMissingException("Usuario no encontrado");
+            } catch (PetMissingException e) {
+                e.printStackTrace();
+            }
+        }
+        if(servicio.getId_servicio() == null){
+            try {
+                throw new PetMissingException("Servicio no encontrado");
+            } catch (PetMissingException e) {
+                e.printStackTrace();
+            }
+        }
+        return citaAgendadaDao.save(entity);
     }
 
     @Override
     public Optional<CitaAgendada> findById(Long id) {
-        try {
-            return citaAgendadaDao.findById(id);
-        } catch (Exception e) {
-            return null;
+        CitaAgendada citaAgendada = citaAgendadaDao.findById(id).get();
+        if(citaAgendada.getId_cita() == null){
+            try {
+                throw new PetMissingException("Cita no encontrada");
+            } catch (PetMissingException e) {
+                e.printStackTrace();
+            }
         }
+        return citaAgendadaDao.findById(id);
     }
 
     @Override

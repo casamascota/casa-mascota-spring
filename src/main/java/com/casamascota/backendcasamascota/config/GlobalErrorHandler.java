@@ -2,6 +2,7 @@ package com.casamascota.backendcasamascota.config;
 
 import com.casamascota.backendcasamascota.dto.ResponseDto;
 import com.casamascota.backendcasamascota.exception.BadRequestException;
+import com.casamascota.backendcasamascota.exception.PetMissingException;
 import com.casamascota.backendcasamascota.exception.UnknownException;
 import com.casamascota.backendcasamascota.models.ErrorMessage;
 import org.springframework.http.HttpStatus;
@@ -38,6 +39,12 @@ public class GlobalErrorHandler {
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<ResponseDto> handleBadRequestException(BadRequestException e) {
         ResponseDto responseDto = new ResponseDto("9000", e.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseDto);
+    }
+
+    @ExceptionHandler(PetMissingException.class)
+    public ResponseEntity<ResponseDto> handlePetMissingException(PetMissingException e) {
+        ResponseDto responseDto = new ResponseDto("9001", e.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseDto);
     }
 

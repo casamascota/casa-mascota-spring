@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+import com.casamascota.backendcasamascota.exception.UnknownException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -95,11 +96,22 @@ public class AreasVacunadasBl implements AreasVacunadasDao {
 
     @Override
     public List<AreasVacunadas> findAll() {
-        try {
+
+        if(areasVacunadasDao.findAll().isEmpty()){
+            try {
+                throw new UnknownException("No hay areas vacunadas");
+            } catch (UnknownException e) {
+                throw new RuntimeException(e);
+            }
+        }else{
             return areasVacunadasDao.findAll();
-        } catch (Exception e) {
-            return null;
+
         }
+
+
+
+
+
     }
 
     @Override
@@ -110,11 +122,35 @@ public class AreasVacunadasBl implements AreasVacunadasDao {
 
     @Override
     public <S extends AreasVacunadas> S save(S entity) {
-        try {
-            return areasVacunadasDao.save(entity);
-        } catch (Exception e) {
-            return null;
+        if(entity.getEnfermedad().isEmpty()){
+            try {
+                throw new UnknownException("El nombre de la enfermedad no puede estar vacio");
+            } catch (UnknownException e) {
+                throw new RuntimeException(e);
+            }
         }
+        if(entity.getFecha().toString().isEmpty()){
+            try {
+                throw new UnknownException("La fecha no puede estar vacia");
+            } catch (UnknownException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        if(entity.getCant_vac() < 0){
+            try {
+                throw new UnknownException("La cantidad de vacunas no puede ser negativa");
+            } catch (UnknownException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        if(entity.getCant_duenos() < 0){
+            try {
+                throw new UnknownException("La cantidad de dueños no puede ser negativa");
+            } catch (UnknownException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return areasVacunadasDao.save(entity);
     }
 
     @Override
