@@ -3,13 +3,18 @@ package com.casamascota.backendcasamascota.bl;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.logging.Logger;
 
+import com.casamascota.backendcasamascota.exception.BadRequestException;
+import com.casamascota.backendcasamascota.exception.UnknownException;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.casamascota.backendcasamascota.dao.AreasFaltaVacunarDao;
@@ -20,13 +25,13 @@ public class AreasFaltaVacunarBl implements AreasFaltaVacunarDao {
 
     @Autowired
     private AreasFaltaVacunarDao areasFaltaVacunarDao;
+    Logger logger = Logger.getLogger(AreasFaltaVacunarBl.class.getName());
 
     @Override
     public void flush() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'flush'");
     }
-
     @Override
     public <S extends AreasFaltaVacunar> S saveAndFlush(S entity) {
         // TODO Auto-generated method stub
@@ -110,12 +115,49 @@ public class AreasFaltaVacunarBl implements AreasFaltaVacunarDao {
 
     @Override
     public <S extends AreasFaltaVacunar> S save(S entity) {
-        try {
-            return areasFaltaVacunarDao.save(entity);
-        } catch (Exception e) {
-            return null;
+        logger.info("saving area sin vacunar: " + entity.getEnfermedad());
+        //Se valida que la cantidad de dueños no sea negativa
+        if (entity.getCant_duenos() < 0) {
+            try {
+                throw new BadRequestException("La cantidad de dueños no puede ser negativa");
+            } catch (BadRequestException e) {
+                throw new RuntimeException(e);
+            }
         }
+
+        //Se valida que la cantidad de mascotas no sea negativa
+        if (entity.getCant_mascot() < 0) {
+            try {
+                throw new BadRequestException("La cantidad de mascotas no puede ser negativa");
+            } catch (BadRequestException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        //Se valida que la cantidad de dosis programadas no sea negativa
+        if (entity.getDosis_prog() < 0) {
+            try {
+                throw new BadRequestException("La cantidad de dosis programadas no puede ser negativa");
+            } catch (BadRequestException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        //Se valida que el brote de enfermedad no sea nulo
+        if (entity.getBrote_enfer() == null) {
+            try {
+                throw new BadRequestException("El brote de enfermedad no puede ser nulo");
+            } catch (BadRequestException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+
+        return areasFaltaVacunarDao.save(entity);
     }
+
+
+
 
     @Override
     public Optional<AreasFaltaVacunar> findById(Long id) {

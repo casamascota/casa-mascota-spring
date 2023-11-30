@@ -33,3 +33,7 @@ GET http://localhost:8080/api/v1/usuario/?usuarioId=2
 ###
 # Cosulta para extraer TODOS LOS usuarios
 GET http://localhost:8080/api/v1/usuarios/
+
+###
+# Consulta para extraer usuario por rol
+GET http://localhost:8080/api/v1/usuarios/rol/?rol=Doctor

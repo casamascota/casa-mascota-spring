@@ -4,6 +4,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+import com.casamascota.backendcasamascota.dao.MascotaDao;
+import com.casamascota.backendcasamascota.dao.ServicioDao;
+import com.casamascota.backendcasamascota.dto.CitaAgendadaDto;
+import com.casamascota.backendcasamascota.entity.Mascota;
+import com.casamascota.backendcasamascota.entity.Servicio;
+import com.casamascota.backendcasamascota.entity.Usuario;
+import com.casamascota.backendcasamascota.exception.PetMissingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -20,6 +27,11 @@ public class CitaAgendadaBl implements CitaAgendadaDao {
 
     @Autowired
     private CitaAgendadaDao citaAgendadaDao;
+
+    @Autowired
+    private MascotaDao mascotaDao;
+    @Autowired
+    private ServicioDao servicioDao;
 
     @Override
     public void flush() {
@@ -110,20 +122,77 @@ public class CitaAgendadaBl implements CitaAgendadaDao {
 
     @Override
     public <S extends CitaAgendada> S save(S entity) {
-        try {
-            return citaAgendadaDao.save(entity);
-        } catch (Exception e) {
-            return null;
+        Mascota mascota = mascotaDao.findById(entity.getMascota().getId_mascota()).get();
+        Usuario usuario = mascota.getUsuario();
+        Servicio servicio = entity.getServicio();
+        if(mascota.getId_mascota() == null){
+            try {
+                throw new PetMissingException("Mascota no encontrada");
+            } catch (PetMissingException e) {
+                e.printStackTrace();
+            }
         }
+        if(usuario == null){
+            try {
+                throw new PetMissingException("Usuario no encontrado");
+            } catch (PetMissingException e) {
+                e.printStackTrace();
+            }
+        }
+        if(servicio.getId_servicio() == null){
+            try {
+                throw new PetMissingException("Servicio no encontrado");
+            } catch (PetMissingException e) {
+                e.printStackTrace();
+            }
+        }
+        return citaAgendadaDao.save(entity);
+    }
+
+    public void saveAppointment(CitaAgendadaDto citaAgendadaDto) throws PetMissingException {
+
+        if(citaAgendadaDto.getId_mascota() == null){
+            throw new PetMissingException("El id de la mascota no puede ser nulo");
+        }
+        if(citaAgendadaDto.getId_servicio() == null){
+            throw new PetMissingException("El id del servicio no puede ser nulo");
+        }
+        if(citaAgendadaDto.getFecha_cita() == null){
+            throw new PetMissingException("La fecha de la cita no puede ser nula");
+        }
+        if(citaAgendadaDto.getFecha_reserva() == null){
+            throw new PetMissingException("La fecha de la reserva no puede ser nula");
+        }
+        if(citaAgendadaDto.getId_usuario() == null){
+            throw new PetMissingException("El id del usuario no puede ser nulo");
+        }
+
+
+        Mascota mascota = mascotaDao.findById(citaAgendadaDto.getId_mascota()).get();
+        Servicio servicio = servicioDao.findById(citaAgendadaDto.getId_servicio()).get();
+        Usuario usuario = mascota.getUsuario();
+        servicio.setId_servicio(citaAgendadaDto.getId_servicio());
+        CitaAgendada citaAgendada = new CitaAgendada();
+        citaAgendada.setFecha_cita(citaAgendadaDto.getFecha_cita());
+        citaAgendada.setFecha_reserva(citaAgendadaDto.getFecha_reserva());
+        citaAgendada.setMascota(mascota);
+        citaAgendada.setServicio(servicio);
+        citaAgendada.setUsuario(usuario);
+        citaAgendadaDao.save(citaAgendada);
+
     }
 
     @Override
     public Optional<CitaAgendada> findById(Long id) {
-        try {
-            return citaAgendadaDao.findById(id);
-        } catch (Exception e) {
-            return null;
+        CitaAgendada citaAgendada = citaAgendadaDao.findById(id).get();
+        if(citaAgendada.getId_cita() == null){
+            try {
+                throw new PetMissingException("Cita no encontrada");
+            } catch (PetMissingException e) {
+                e.printStackTrace();
+            }
         }
+        return citaAgendadaDao.findById(id);
     }
 
     @Override

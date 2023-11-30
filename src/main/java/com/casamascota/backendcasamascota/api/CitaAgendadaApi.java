@@ -2,6 +2,8 @@ package com.casamascota.backendcasamascota.api;
 
 import java.util.List;
 
+import com.casamascota.backendcasamascota.dto.CitaAgendadaDto;
+import com.casamascota.backendcasamascota.exception.PetMissingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,8 +26,10 @@ public class CitaAgendadaApi {
     private CitaAgendadaBl citaAgendadaBl;
 
     @PostMapping
-    private ResponseEntity<CitaAgendada> create(@RequestBody CitaAgendada citaAgendada) {
-        return ResponseEntity.ok(citaAgendadaBl.save(citaAgendada));
+    private ResponseEntity<String> create(@RequestBody CitaAgendadaDto citaAgendada) throws PetMissingException {
+        String response = "Cita Agendada creada correctamente";
+        citaAgendadaBl.saveAppointment(citaAgendada);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping

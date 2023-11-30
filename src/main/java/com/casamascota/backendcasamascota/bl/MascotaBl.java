@@ -134,6 +134,10 @@ public class MascotaBl implements MascotaDao {
     @Override
     public <S extends Mascota> S save(S entity) {
         try {
+            if (entity.getUsuario().getId_usuario() == null) {
+                entity.setUsuario(null);
+                return mascotaDao.save(entity);
+            }
             Optional<Usuario> usuario = usuarioDao.findById(entity.getUsuario().getId_usuario());
             entity.setUsuario(usuario.get());
             
