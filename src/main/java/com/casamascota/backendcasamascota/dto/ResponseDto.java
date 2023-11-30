@@ -1,15 +1,15 @@
 package com.casamascota.backendcasamascota.dto;
 
-public class ResponseDto {
+public class ResponseDto<T> {
     private String code;
-    private Object result;
+    private T result;
     private String message;
 
     //Solo usamos 2 constructores para que el programador ya no haga lo que le de la gana
 
     //Constructor para cuando se obtenga una respuesta correcta
 
-    public ResponseDto(Object result) {
+    public ResponseDto(T result) {
         this.code = "Result-0000";
         this.result=result;
     }
@@ -35,7 +35,7 @@ public class ResponseDto {
         return result;
     }
 
-    public void setResult(Object result) {
+    public void setResult(T result) {
         this.result = result;
     }
 
